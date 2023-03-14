@@ -5,9 +5,23 @@ public class Conta {
 	private int numero;
 	private Cliente titular;
 
+	public Conta(int agencia, int numero) {
+		this.agencia = agencia;
+		this.numero = numero;
+
+		if (agencia <= 0) {
+			System.out.println("Valor de agencia incorreto. A agencia deve ser maior que 0");
+		}
+		System.out.println("Estou criando uma conta " + this.numero);
+	}
+
 	// comportamentos / métodos
 
 	public void deposita(double valor) {
+		if (valor <= 0) {
+			System.out.println("valor insuficiente. Deposite mais de R$0,00");
+			return;
+		}
 		this.saldo += valor;
 	}
 
